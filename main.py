@@ -2,6 +2,7 @@ import asyncio
 import time
 import os
 from telethon import TelegramClient, events
+from telethon.sessions import StringSession
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,8 +13,8 @@ API_HASH = str(os.getenv("API_HASH"))
 last_active = time.time()
 last_answer = {}
 
-client = TelegramClient("name", API_ID, API_HASH)
-
+client = TelegramClient(StringSession(), API_ID, API_HASH)
+print(client.session.save())
 
 @client.on(events.NewMessage(outgoing=True))
 async def on_new_message(event: events.NewMessage.Event):
