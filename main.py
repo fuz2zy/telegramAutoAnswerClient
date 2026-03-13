@@ -44,6 +44,7 @@ async def on_private_message(event: events.NewMessage.Event):
 
 
 async def main():
+    print("автоответчик начал работу")
     await client.start()
     await client.run_until_disconnected()
 
