@@ -26,7 +26,7 @@ async def on_new_message(event: events.NewMessage.Event):
 async def on_private_message(event: events.NewMessage.Event):
     if not time.time() - last_active > 600:
         return
-👑
+    
     sender_id = event.sender_id
 
     last_answer_time = last_answer.get(sender_id, 0)
