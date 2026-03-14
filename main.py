@@ -44,6 +44,8 @@ async def on_private_message(event: events.NewMessage.Event):
 <b>Царь Батюшка был оповещен о вашем обращении и вскоре ответит ✍🏻</b>
 """, parse_mode="html")
 
+    await client.send_file(event.sender_id, file="AAMCAgADGQEC7No4abSPvsb7TjdcgLckN0EC_D7JMzcAAoWeAAKQ4alJLItjNhFv2EQBAAdtAAM6BA")
+
 
 async def main():
     print("автоответчик начал работу")
