@@ -9,12 +9,13 @@ load_dotenv()
 
 API_ID = int(os.getenv("API_ID"))
 API_HASH = str(os.getenv("API_HASH"))
+STRING_SESSION = str(os.getenv("STRING_SESSION"))
 
 last_active = time.time()
 last_answer = {}
 
-client = TelegramClient(StringSession(), API_ID, API_HASH)
-print(client.session.save())
+client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
+
 
 @client.on(events.NewMessage(outgoing=True))
 async def on_new_message(event: events.NewMessage.Event):
