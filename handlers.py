@@ -24,7 +24,8 @@ async def autoanswer_handler(event: events.NewMessage.Event):
         if user_answer_info == 1:
             return
         
-        await asyncio.sleep(60)
+        
         config.answers_info[sender_id] = 1
+        await asyncio.sleep(60)
         msg = await config.client.send_file(sender_id, config.autoanswer_audio_path, voice_note=True)
         await config.client.send_message(sender_id, config.autoanswer_text, parse_mode="html")
